@@ -9,16 +9,18 @@
 </head>
 <body>
     <pre>
-        You probably know the "like" system from Facebook and other pages. People can "like" blog posts, pictures or other items. We want to create the text that should be displayed next to such an item.
+        Define a function that takes one integer argument and returns logical value true or false depending on if the integer is a prime.
 
-        Implement the function which takes an array containing the names of people that like an item. It must return the display text as shown in the examples:
+        Per Wikipedia, a prime number (or a prime) is a natural number greater than 1 that has no positive divisors other than 1 and itself.
         
-        []                                -->  "no one likes this"
-        ["Peter"]                         -->  "Peter likes this"
-        ["Jacob", "Alex"]                 -->  "Jacob and Alex like this"
-        ["Max", "John", "Mark"]           -->  "Max, John and Mark like this"
-        ["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
-        Note: For 4 or more names, the number in "and 2 others" simply increases.
+        Requirements
+        You can assume you will be given an integer input.
+        You can not assume that the integer will be only positive. You may be given negative numbers as well (or 0).
+        NOTE on performance: There are no fancy optimizations required, but still the most trivial solutions might time out. Numbers go up to 2^31 (or similar, depends on language version). Looping all the way up to n, or n/2, will be too slow.
+        Example
+        is_prime(1)  /* false */
+        is_prime(2)  /* true  */
+        is_prime(-1) /* false */
     </pre>
 </body>
 </html>
