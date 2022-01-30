@@ -9,18 +9,37 @@
 </head>
 <body>
     <pre>
-        Define a function that takes one integer argument and returns logical value true or false depending on if the integer is a prime.
+        In this kata you have to implement a base converter, which converts positive integers between arbitrary bases / alphabets. Here are some pre-defined alphabets:
 
-        Per Wikipedia, a prime number (or a prime) is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+        var Alphabet = {
+          BINARY:        '01',
+          OCTAL:         '01234567',
+          DECIMAL:       '0123456789',
+          HEXA_DECIMAL:  '0123456789abcdef',
+          ALPHA_LOWER:   'abcdefghijklmnopqrstuvwxyz',
+          ALPHA_UPPER:   'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+          ALPHA:         'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
+          ALPHA_NUMERIC: '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        };
+        The function convert() should take an input (string), the source alphabet (string) and the target alphabet (string). You can assume that the input value always consists of characters from the source alphabet. You don't need to validate it.
         
-        Requirements
-        You can assume you will be given an integer input.
-        You can not assume that the integer will be only positive. You may be given negative numbers as well (or 0).
-        NOTE on performance: There are no fancy optimizations required, but still the most trivial solutions might time out. Numbers go up to 2^31 (or similar, depends on language version). Looping all the way up to n, or n/2, will be too slow.
-        Example
-        is_prime(1)  /* false */
-        is_prime(2)  /* true  */
-        is_prime(-1) /* false */
+        Examples
+        // convert between numeral systems
+        convert("15", Alphabet.DECIMAL, Alphabet.BINARY); // should return "1111"
+        convert("15", Alphabet.DECIMAL, Alphabet.OCTAL); // should return "17"
+        convert("1010", Alphabet.BINARY, Alphabet.DECIMAL); // should return "10"
+        convert("1010", Alphabet.BINARY, Alphabet.HEXA_DECIMAL); // should return "a"
+        
+        // other bases
+        convert("0", Alphabet.DECIMAL, Alphabet.ALPHA); // should return "a"
+        convert("27", Alphabet.DECIMAL, Alphabet.ALPHA_LOWER); // should return "bb"
+        convert("hello", Alphabet.ALPHA_LOWER, Alphabet.HEXA_DECIMAL); // should return "320048"
+        convert("SAME", Alphabet.ALPHA_UPPER, Alphabet.ALPHA_UPPER); // should return "SAME"
+        Additional Notes:
+        
+        The maximum input value can always be encoded in a number without loss of precision in JavaScript. In Haskell, intermediate results will probably be too large for Int.
+        The function must work for any arbitrary alphabets, not only the pre-defined ones
+        You don't have to consider negative numbers
     </pre>
 </body>
 </html>
